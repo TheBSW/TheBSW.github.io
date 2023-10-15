@@ -7,11 +7,11 @@ fetch(`https://api.github.com/users/${githubUsername}`)
   .then((data) => {
     // Extract the avatar URL from the response data
     const avatarUrl = data.avatar_url;
-
+    const bsw = data.name;
     // Create meta tags for Open Graph properties
     const ogTitleTag = document.createElement("meta");
     ogTitleTag.setAttribute("property", "og:title");
-    ogTitleTag.setAttribute("content", "BSW Champs");
+    ogTitleTag.setAttribute("content", `${bsw} Champs`);
 
     const ogTypeTag = document.createElement("meta");
     ogTypeTag.setAttribute("property", "og:type");
@@ -19,7 +19,7 @@ fetch(`https://api.github.com/users/${githubUsername}`)
 
     const ogUrlTag = document.createElement("meta");
     ogUrlTag.setAttribute("property", "og:url");
-    ogUrlTag.setAttribute("content", "https://TheBSW.github.io");
+    ogUrlTag.setAttribute("content", `https://${bsw}.github.io`);
 
     const ogImageTag = document.createElement("meta");
     ogImageTag.setAttribute("property", "og:image");
